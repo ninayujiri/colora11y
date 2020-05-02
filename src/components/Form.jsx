@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const FormCol = styled.div`
-  width: 48%;
-`;
-
 export const Input = styled.input`
   font-family: 'Roboto Mono', sans-serif;
   background-color: transparent;
@@ -19,13 +10,18 @@ export const Input = styled.input`
   height: 88px;
   width: 100%;
   border: none;
-  border-bottom: 2px white solid;
+  border-bottom: 2px ${ props => props.borderColor } solid;
   
   &&::placeholder {
     color: inherit;
   }
   
-  @media (max-width: 480px) {
-    font-size: 32px;
+  @media (max-width: 768px) {
+    font-size: 50px;
   }
 `;
+
+export const Label = styled.label`
+  font-family: 'Karla', sans-serif;
+`;
+
