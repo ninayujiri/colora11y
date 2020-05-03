@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import chroma from 'chroma-js'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
 import Layout from '../layouts/Layout'
 import SiteMetadata from '../components/SiteMetadata'
 import { Body, Heading } from '../components/Typography'
-import { Form, Input, Label } from '../components/Form'
+import { Form, Input, InputGroup, Label } from '../components/Form'
 import { Background } from '../components/Background'
 import { Container } from '../components/Container'
 import Stat from '../components/Stat'
 import { Col, Row, Section } from '../components/Grid'
 import Header from '../components/Header';
+import { CopyButton } from '../components/CopyButton';
 
 const IndexPage = () => {
   const [inputs, setInputs] = useState({
     textColor: '#fcf8f1',
-    bgColor: '#485d51'
+    bgColor: '#485d51',
+    copied: false
   });
   const [ratio, setRatio] = useState();
   const [grade, setGrade] = useState({
@@ -91,29 +95,42 @@ const IndexPage = () => {
                     <Label htmlFor="textColor">
                       Foreground color
                     </Label>
-                    <Input
-                        id="textColor"
-                        type="text"
-                        maxLength="7"
-                        name="textColor"
-                        value={ inputs.textColor || '' }
-                        onChange={ handleInputChange }
-                        borderColor={ inputs.textColor }
-                    />
+                    <InputGroup borderColor={ inputs.textColor }>
+                      <Input
+                          id="textColor"
+                          type="text"
+                          maxLength="7"
+                          name="textColor"
+                          value={ inputs.textColor || '' }
+                          onChange={ handleInputChange }
+                          borderColor={ inputs.textColor }
+                      />
+                      <CopyToClipboard text={ inputs.textColor }>
+                        <CopyButton color={ inputs.textColor }>
+                          Copy
+                        </CopyButton>
+                      </CopyToClipboard>
+                    </InputGroup>
                   </Col>
                   <Col width="50%">
                     <Label htmlFor="bgColor">
                       Background color
                     </Label>
-                    <Input
-                        id="bgColor"
-                        type="text"
-                        maxLength="7"
-                        name="bgColor"
-                        value={ inputs.bgColor || '' }
-                        onChange={ handleInputChange }
-                        borderColor={ inputs.textColor }
-                    />
+                    <InputGroup borderColor={ inputs.textColor }>
+                      <Input
+                          id="bgColor"
+                          type="text"
+                          maxLength="7"
+                          name="bgColor"
+                          value={ inputs.bgColor || '' }
+                          onChange={ handleInputChange }
+                      />
+                      <CopyToClipboard text={ inputs.textColor }>
+                        <CopyButton color={ inputs.textColor }>
+                          Copy
+                        </CopyButton>
+                      </CopyToClipboard>
+                    </InputGroup>
                   </Col>
                 </Row>
               </Form>

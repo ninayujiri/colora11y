@@ -6,6 +6,18 @@ export const Form = styled.form`
   }
 `;
 
+export const InputGroup = styled.div`
+  border-bottom: 2px ${ props => props.borderColor } solid;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const Input = styled.input`
   font-family: 'Roboto Mono', sans-serif;
   background-color: transparent;
@@ -14,9 +26,8 @@ export const Input = styled.input`
   line-height: 1;
   padding: 0;
   height: 88px;
-  width: 90%;
   border: none;
-  border-bottom: 2px ${ props => props.borderColor } solid;
+  width: inherit;
   
   &&::placeholder {
     color: inherit;
@@ -24,10 +35,6 @@ export const Input = styled.input`
   
   @media (max-width: 1200px) {
     font-size: 42px;
-  }
-  
-  @media (max-width: 768px) {
-    width: 100%;
   }
 `;
 
