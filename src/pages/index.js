@@ -8,7 +8,7 @@ import { Background } from '../components/Background'
 import { Container } from '../components/Container'
 import Stat from '../components/Stat'
 import { Col, Row, Section } from '../components/Grid'
-import { Button } from '../components/Button'
+import Header from '../components/Header';
 
 const IndexPage = () => {
   const [inputs, setInputs] = useState({
@@ -22,8 +22,7 @@ const IndexPage = () => {
   });
 
   useEffect(() => {
-        const hexCodeRegEx = /^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
-        if (inputs.textColor.match(hexCodeRegEx) && inputs.bgColor.match(hexCodeRegEx)) {
+        if (chroma.valid(inputs.textColor) && chroma.valid(inputs.bgColor)) {
           checkColorContrast();
         }
       }, [inputs]
@@ -49,21 +48,16 @@ const IndexPage = () => {
     }
   };
 
-  const reverseColors = () => {
-    setInputs({
-      textColor: inputs.bgColor,
-      bgColor: inputs.textColor
-    });
-  };
-
   return (
       <Layout>
         <SiteMetadata title="Home" description="A11y color contrast checker" />
+
         <Background color={ inputs.textColor } bgColor={ inputs.bgColor }>
           <Container>
+            <Header />
             <Section order="3">
               <Row>
-                <Col width="48%" order="2">
+                <Col width="40%" order="2">
                   <Label>
                     Large text
                   </Label>
@@ -71,15 +65,15 @@ const IndexPage = () => {
                     Lorem ipsum
                   </Heading>
                 </Col>
-                <Col width="18%" order="3">
+                <Col width="20%" order="3">
                   <Stat label="WCAG grade" stat={ grade.large } />
                 </Col>
-                <Col width="18%" order="1">
+                <Col width="20%" order="1">
                   <Stat label="Contrast ratio" stat={ `${ ratio }: 1` } />
                 </Col>
               </Row>
               <Row>
-                <Col width="48%">
+                <Col width="40%">
                   <Label>
                     Regular text
                   </Label>
@@ -87,17 +81,17 @@ const IndexPage = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </Body>
                 </Col>
-                <Col width="18%">
+                <Col width="20%">
                   <Stat label="WCAG grade" stat={ grade.regular } />
                 </Col>
-                <Col width="18%" />
+                <Col width="20%" />
               </Row>
             </Section>
 
             <Section order="1">
               <Form color={ inputs.color }>
                 <Row>
-                  <Col>
+                  <Col width="50%">
                     <Label htmlFor="textColor">
                       Foreground color
                     </Label>
@@ -111,8 +105,7 @@ const IndexPage = () => {
                         borderColor={ inputs.textColor }
                     />
                   </Col>
-
-                  <Col>
+                  <Col width="50%">
                     <Label htmlFor="bgColor">
                       Background color
                     </Label>
@@ -128,17 +121,6 @@ const IndexPage = () => {
                   </Col>
                 </Row>
               </Form>
-            </Section>
-
-            <Section order="2">
-              <Button
-                  color={ inputs.textColor }
-                  bgColor={ inputs.bgColor }
-                  type="button"
-                  onClick={ reverseColors }
-              >
-                Reverse colors
-              </Button>
             </Section>
           </Container>
         </Background>

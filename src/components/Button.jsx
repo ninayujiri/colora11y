@@ -9,7 +9,6 @@ export const Button = styled.button`
   border-radius: 4px;
   color: ${ props => props.bgColor };
   background-color: ${ props => props.color };
-  margin-bottom: 60px;
   
   &:hover {
     filter: brightness(90%);

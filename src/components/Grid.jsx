@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Row = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Col = styled.div`
 `;
 
 export const Section = styled.section`
-  margin-bottom: 120px;
+  margin-bottom: 90px;
   
   @media (max-width: 1200px) {
       margin-bottom: 60px;

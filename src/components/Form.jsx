@@ -10,11 +10,11 @@ export const Input = styled.input`
   font-family: 'Roboto Mono', sans-serif;
   background-color: transparent;
   color: inherit;
-  font-size: 72px;
+  font-size: 60px;
   line-height: 1;
   padding: 0;
   height: 88px;
-  width: 100%;
+  width: 90%;
   border: none;
   border-bottom: 2px ${ props => props.borderColor } solid;
   
@@ -23,7 +23,11 @@ export const Input = styled.input`
   }
   
   @media (max-width: 1200px) {
-    font-size: 60px;
+    font-size: 42px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
