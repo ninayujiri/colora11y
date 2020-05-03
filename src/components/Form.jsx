@@ -21,11 +21,12 @@ export const InputGroup = styled.div`
 export const Input = styled.input`
   font-family: 'Roboto Mono', sans-serif;
   background-color: transparent;
-  color: inherit;
+  color: #FCF8F1;
+  mix-blend-mode: difference;
   font-size: 60px;
   line-height: 1;
   padding: 0;
-  height: 88px;
+  height: 80px;
   border: none;
   width: inherit;
   

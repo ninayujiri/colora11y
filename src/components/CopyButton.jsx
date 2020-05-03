@@ -6,8 +6,8 @@ export const CopyButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: ${ props => props.color };
-  background-color: transparent;
+  color: #FCF8F1;
   mix-blend-mode: difference;
-  padding: 20px 0;
+  background-color: transparent;
+  margin: 20px 0;
 `;
