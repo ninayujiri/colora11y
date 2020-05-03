@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Form = styled.form`
+  && {
+    color: ${ props => props.color };
+  }
+`;
+
 export const Input = styled.input`
   font-family: 'Roboto Mono', sans-serif;
   background-color: transparent;
@@ -23,5 +29,5 @@ export const Input = styled.input`
 
 export const Label = styled.label`
   font-family: 'Karla', sans-serif;
+  padding-bottom: 10px;
 `;
-

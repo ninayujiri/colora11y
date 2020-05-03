@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import chroma from 'chroma-js';
-import Layout from '../layouts/Layout';
-import SiteMetadata from '../components/SiteMetadata';
-import { Heading } from '../components/Typography';
-import { Input, Label } from '../components/Form';
-import { Background } from '../components/Background';
-import { Container } from '../components/Container';
-import RatioCard from '../components/RatioCard';
-import { Col, Row } from '../components/Grid';
+import chroma from 'chroma-js'
+import Layout from '../layouts/Layout'
+import SiteMetadata from '../components/SiteMetadata'
+import { Heading } from '../components/Typography'
+import { Form, Input, Label } from '../components/Form'
+import { Background } from '../components/Background'
+import { Container } from '../components/Container'
+import RatioCard from '../components/RatioCard'
+import { Col, Row } from '../components/Grid'
+import { Button } from '../components/Button'
 
 const IndexPage = () => {
   const [inputs, setInputs] = useState({
-    textColor: '#a1bbc4',
-    bgColor: '#1b4645'
+    textColor: '#fcf8f1',
+    bgColor: '#485d51'
   });
   const [ratio, setRatio] = useState();
   const [grade, setGrade] = useState('AaBbCc');
@@ -35,12 +36,21 @@ const IndexPage = () => {
     setRatio(contrastRatio);
 
     if (contrastRatio > 7) {
-      setGrade('AAA');
+      setGrade('AAA 💯');
     } else if (contrastRatio > 4.5) {
-      setGrade('AA');
+      setGrade('AA Regular 👌');
+    } else if (contrastRatio > 3) {
+      setGrade('AA Large 👌')
     } else {
-      setGrade('Fail');
+      setGrade('Fail 👎');
     }
+  };
+
+  const reverseColors = () => {
+    setInputs({
+      textColor: inputs.bgColor,
+      bgColor: inputs.textColor
+    });
   };
 
   return (
@@ -49,21 +59,21 @@ const IndexPage = () => {
         <Background color={ inputs.textColor } bgColor={ inputs.bgColor }>
           <Container>
             <Row>
-              <Col>
+              <Col width="38%">
                 <Heading>
                   AaBbCc
                 </Heading>
               </Col>
-              <Col>
+              <Col width="58%">
                 <RatioCard ratio={ ratio } grade={ grade } />
               </Col>
             </Row>
 
-            <form>
+            <Form color={ inputs.color }>
               <Row>
                 <Col>
-                  <Label for="textColor">
-                    Text
+                  <Label htmlFor="textColor">
+                    Foreground color
                   </Label>
                   <Input
                       id="textColor"
@@ -77,8 +87,8 @@ const IndexPage = () => {
                 </Col>
 
                 <Col>
-                  <Label for="bgColor">
-                    Background
+                  <Label htmlFor="bgColor">
+                    Background color
                   </Label>
                   <Input
                       id="bgColor"
@@ -91,7 +101,17 @@ const IndexPage = () => {
                   />
                 </Col>
               </Row>
-            </form>
+            </Form>
+
+            <Button
+                color={ inputs.textColor }
+                bgColor={ inputs.bgColor }
+                type="button"
+                onClick={ reverseColors }
+            >
+              Reverse colors
+            </Button>
+
 
           </Container>
         </Background>

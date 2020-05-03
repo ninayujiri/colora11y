@@ -4,7 +4,8 @@ export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 40px;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -12,7 +13,7 @@ export const Row = styled.div`
 `;
 
 export const Col = styled.div`
-  width: 48%;
+  width: ${props => props.width ? props.width : '48%'};
   
   @media (max-width: 768px) {
     width: 100%;
