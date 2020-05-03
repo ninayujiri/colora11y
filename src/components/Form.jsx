@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Form = styled.form`
   && {
@@ -22,12 +22,14 @@ export const Input = styled.input`
     color: inherit;
   }
   
-  @media (max-width: 768px) {
-    font-size: 50px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
   }
 `;
 
 export const Label = styled.label`
   font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   padding-bottom: 10px;
 `;
