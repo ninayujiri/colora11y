@@ -23,29 +23,25 @@ const IndexPage = () => {
 
   useEffect(() => {
         if (chroma.valid(inputs.textColor) && chroma.valid(inputs.bgColor)) {
-          checkColorContrast();
+          const contrastRatio = chroma.contrast(inputs.textColor, inputs.bgColor).toFixed(1);
+          setRatio(contrastRatio);
+
+          if (contrastRatio > 7) {
+            setGrade({large: 'AAA ✨', regular: 'AAA ✨'});
+          } else if (contrastRatio > 4.5) {
+            setGrade({large: 'AAA ✨', regular: 'AA 👌'});
+          } else if (contrastRatio > 3) {
+            setGrade({large: 'AA 👌', regular: 'Fail 👎'});
+          } else {
+            setGrade({large: 'Fail 👎', regular: 'Fail 👎'});
+          }
         }
-      }, [inputs]
+      }, [inputs.textColor, inputs.bgColor]
   );
 
   const handleInputChange = (event) => {
     event.persist();
     setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
-  };
-
-  const checkColorContrast = () => {
-    const contrastRatio = chroma.contrast(inputs.textColor, inputs.bgColor).toFixed(1);
-    setRatio(contrastRatio);
-
-    if (contrastRatio > 7) {
-      setGrade({large: 'AAA ✨', regular: 'AAA ✨'});
-    } else if (contrastRatio > 4.5) {
-      setGrade({large: 'AAA ✨', regular: 'AA 👌'});
-    } else if (contrastRatio > 3) {
-      setGrade({large: 'AA 👌', regular: 'Fail 👎'});
-    } else {
-      setGrade({large: 'Fail 👎', regular: 'Fail 👎'});
-    }
   };
 
   return (
@@ -69,7 +65,7 @@ const IndexPage = () => {
                   <Stat label="WCAG grade" stat={ grade.large } />
                 </Col>
                 <Col width="20%" order="1">
-                  <Stat label="Contrast ratio" stat={ `${ ratio }: 1` } />
+                  <Stat label="Contrast ratio" stat={ `${ ratio }:1` } />
                 </Col>
               </Row>
               <Row>

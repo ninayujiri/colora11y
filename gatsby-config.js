@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Color checker`,
+    title: `color a11y`,
     locale: `en`,
   },
   plugins: [
