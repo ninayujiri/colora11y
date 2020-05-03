@@ -5,7 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Layout from '../layouts/Layout'
 import SiteMetadata from '../components/SiteMetadata'
 import { Body, Heading } from '../components/Typography'
-import { Form, Input, InputGroup, Label } from '../components/Form'
+import { ColorInput, Form, Input, InputGroup, Label } from '../components/Form'
 import { Background } from '../components/Background'
 import { Container } from '../components/Container'
 import Stat from '../components/Stat'
@@ -16,8 +16,7 @@ import { CopyButton } from '../components/CopyButton';
 const IndexPage = () => {
   const [inputs, setInputs] = useState({
     textColor: '#fcf8f1',
-    bgColor: '#485d51',
-    copied: false
+    bgColor: '#485d51'
   });
   const [ratio, setRatio] = useState();
   const [grade, setGrade] = useState({
@@ -101,16 +100,25 @@ const IndexPage = () => {
                           type="text"
                           maxLength="7"
                           name="textColor"
-                          value={ inputs.textColor || '' }
+                          value={ inputs.textColor }
                           onChange={ handleInputChange }
                           borderColor={ inputs.textColor }
                       />
-                      <CopyToClipboard text={ inputs.textColor }>
-                        <CopyButton color={ inputs.textColor }>
-                          Copy
-                        </CopyButton>
-                      </CopyToClipboard>
+                      <ColorInput
+                          type="color"
+                          name="textColor"
+                          value={ inputs.textColor }
+                          onChange={ handleInputChange }
+                      />
                     </InputGroup>
+                    <CopyToClipboard text={ inputs.textColor }>
+                      <CopyButton
+                          color={ inputs.textColor }
+                          onClick={ (e) => e.preventDefault() }
+                      >
+                        Copy
+                      </CopyButton>
+                    </CopyToClipboard>
                   </Col>
                   <Col width="50%">
                     <Label htmlFor="bgColor">
@@ -122,15 +130,24 @@ const IndexPage = () => {
                           type="text"
                           maxLength="7"
                           name="bgColor"
-                          value={ inputs.bgColor || '' }
+                          value={ inputs.bgColor }
                           onChange={ handleInputChange }
                       />
-                      <CopyToClipboard text={ inputs.textColor }>
-                        <CopyButton color={ inputs.textColor }>
-                          Copy
-                        </CopyButton>
-                      </CopyToClipboard>
+                      <ColorInput
+                          type="color"
+                          name="bgColor"
+                          value={ inputs.bgColor }
+                          onChange={ handleInputChange }
+                      />
                     </InputGroup>
+                    <CopyToClipboard text={ inputs.bgColor }>
+                      <CopyButton
+                          color={ inputs.textColor }
+                          onClick={ (e) => e.preventDefault() }
+                      >
+                        Copy
+                      </CopyButton>
+                    </CopyToClipboard>
                   </Col>
                 </Row>
               </Form>

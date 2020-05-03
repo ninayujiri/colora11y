@@ -38,6 +38,23 @@ export const Input = styled.input`
   }
 `;
 
+export const ColorInput = styled.input`
+  height: 30px;
+  width: 29px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  &::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;  
+  }
+`;
+
 export const Label = styled.label`
   font-family: 'Karla', sans-serif;
   font-size: 16px;

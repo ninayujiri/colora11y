@@ -9,4 +9,5 @@ export const CopyButton = styled.button`
   color: ${ props => props.color };
   background-color: transparent;
   mix-blend-mode: difference;
+  padding: 20px 0;
 `;
