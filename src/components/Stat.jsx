@@ -1,6 +1,6 @@
 import React from 'react'
 import { Label } from './Form.styles'
-import { SubHeading } from './Typography'
+import { SubHeading } from './Typography.styles'
 
 const Stat = ({
                 label,

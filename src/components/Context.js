@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
 import chroma from 'chroma-js';
 
 const Context = createContext({});
@@ -14,7 +14,7 @@ export const ContextProvider = (props) => {
     large: ''
   });
 
-  const checkContrast = () => {
+  const checkContrast = useCallback(() => {
     if (chroma.valid(colors.fg) && chroma.valid(colors.bg)) {
       const contrastRatio = chroma.contrast(colors.fg, colors.bg).toFixed(1);
       setRatio(contrastRatio);
@@ -29,11 +29,11 @@ export const ContextProvider = (props) => {
         setGrade({large: 'Fail 👎', regular: 'Fail 👎'});
       }
     }
-  };
+  }, [colors]);
 
   useEffect(() => {
         checkContrast()
-      }, [colors.fg, colors.bg]
+      }, [colors.fg, colors.bg, checkContrast]
   );
 
   const handleInputChange = (event) => {
