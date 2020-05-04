@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../layouts/Layout'
 import SiteMetadata from '../components/SiteMetadata'
-import { Body, Heading } from '../components/Typography'
-import { Container } from '../components/Container'
-import { Background } from '../components/Background'
+import { Body, Heading } from '../components/Typography.styles'
+import { Container } from '../components/Container.styles'
+import { Background } from '../components/Background.styles'
 
 const ErrorPage = () => (
     <Layout>
@@ -14,7 +14,6 @@ const ErrorPage = () => (
           <Heading>
             Error 404
           </Heading>
-
           <Body>
             The page doesn't exists.
           </Body>

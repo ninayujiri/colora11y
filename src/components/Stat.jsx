@@ -1,5 +1,5 @@
 import React from 'react'
-import { Label } from './Form'
+import { Label } from './Form.styles'
 import { SubHeading } from './Typography'
 
 const Stat = ({
