@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react'
-import chroma from 'chroma-js';
+import chroma from 'chroma-js'
 
 const Context = createContext({});
 

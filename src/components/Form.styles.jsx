@@ -23,7 +23,7 @@ export const Input = styled.input`
   background-color: transparent;
   color: #FCF8F1;
   mix-blend-mode: difference;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 1;
   padding: 0;
   height: 80px;
@@ -35,7 +35,7 @@ export const Input = styled.input`
   }
   
   @media (max-width: 1200px) {
-    font-size: 42px;
+    font-size: 40px;
   }
 `;
 
