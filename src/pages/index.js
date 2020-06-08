@@ -102,7 +102,7 @@ const IndexPage = () => {
                       />
                       <ColorInput
                           type="color"
-                          name="bgColor"
+                          name="bg"
                           value={ colors.bg }
                           onChange={ handleInputChange }
                       />
