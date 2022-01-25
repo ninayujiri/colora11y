@@ -61,4 +61,5 @@ export const Label = styled.label`
   font-size: 16px;
   font-weight: 700;
   padding-bottom: 10px;
+  mix-blend-mode: difference;
 `;
